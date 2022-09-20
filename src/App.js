@@ -91,7 +91,7 @@ const App = () => {
             <InputBox types={"Title"} setText={setTitle} submit={submit} />
             <div className="buttonWrap">
                 <button className="button-35" onClick={signInWithGoogle}>{isAuth ? "LogOut" : "Login"}</button>
-                <button className="button-35" onClick={getQuestionList}>Search</button>
+                <button className="button-35" onClick={saveQuestion}>Search</button>
             </div>
         </div>
         {submit != 0 ?
