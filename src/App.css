@@ -1,38 +1,213 @@
-.App {
-  text-align: center;
+.container {
+    /* Used to position the left vertical line */
+    position: relative;
+    margin: 30px;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container__line {
+    /* Border */
+    border-right: 2px solid rgb(166, 223, 240);
+
+    /* Positioned at the left */
+    left: 16px;
+    position: absolute;
+    top: 0px;
+
+    /* Take full height */
+    height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container__items {
+    /* Reset styles */
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container__item {
+    margin-bottom: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.container__top {
+    /* Center the content horizontally */
+    align-items: center;
+    display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container__circle {
+    /* Rounded border */
+    background-color: rgb(166, 223, 240);
+    border-radius: 9999px;
+
+    /* Size */
+    height: 32px;
+    width: 32px;
+}
+
+.container__title {
+    /* Take available width */
+    flex: 1;
+    padding-left: 5px;
+}
+
+.container__desc {
+    /* Make it align with the title */
+    margin-left: 48px;
+    padding-left: 5px;
+    color: rgb(81, 202, 239);
+
+}
+
+
+.inputBox {
+    flex: 1;
+    resize: none;
+    line-height: 30px;
+    border-radius: 0px;
+    border-style: none;
+    width: 100%;
+    max-width: 100%;
+}
+
+.inputBox::-webkit-input-placeholder {
+    /* Edge */
+    color: grey;
+    text-align: center;
+    line-height: 40px;
+}
+
+.inputBox:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: grey;
+    text-align: center;
+    line-height: 40px;
+}
+
+
+.inputBox::placeholder {
+    color: grey;
+    text-align: center;
+    line-height: 40px;
+}
+
+.inputBox:focus::placeholder {
+    color: transparent;
+}
+
+
+.titleClass {
+    flex: 1;
+    resize: none;
+    line-height: 30px;
+    font-size: 30px;
+    border-radius: 0px;
+    border-style: none;
+    padding-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.titleClass::-webkit-input-placeholder {
+    /* Edge */
+    color: grey;
+    text-align: center;
+    line-height: 40px;
+}
+
+.titleClass:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: grey;
+    text-align: center;
+    line-height: 40px;
+}
+
+
+.titleClass::placeholder {
+    color: grey;
+    text-align: center;
+    line-height: 40px;
+}
+
+.titleClass:focus::placeholder {
+    color: transparent;
+}
+
+
+/* CSS */
+.button-35 {
+
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
+    box-sizing: border-box;
+    color: #121212;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 0.5;
+    margin: auto;
+    outline: none;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s, -webkit-box-shadow .2s;
+    flex-wrap: wrap;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-35:hover {
+    box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media (max-width: 800px) {
+    .formContainer {
+        flex-direction: column;
+    }
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.diagramWrap {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.buttonWrap {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+.buttonWrapHorizontal {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+}
+
+fieldset {
+    border-radius: 10px;
+    display: flex;
+    flex-basis: 100%
 }
