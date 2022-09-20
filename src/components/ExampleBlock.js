@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
-import Geogebra from 'react-geogebra';
+// import Geogebra from 'react-geogebra';
 
 const ExampleBlock = ({ question, answer, gb, id }) => {
 
@@ -40,7 +40,7 @@ const ExampleBlock = ({ question, answer, gb, id }) => {
         ... */}
             </ul>
         </div>
-        <div >
+        {/* <div >
             {gb != ""
                 ? <Geogebra
                     id={id}
@@ -50,7 +50,7 @@ const ExampleBlock = ({ question, answer, gb, id }) => {
                 />
                 : null
             }
-        </div>
+        </div> */}
     </div>
 }
 
