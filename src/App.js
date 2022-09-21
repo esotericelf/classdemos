@@ -8,12 +8,14 @@ import { makeid } from "./components/uniqueID";
 import PostList from "./components/PostList";
 import InputForm from "./components/inputForm";
 import { signInWithPopup } from "firebase/auth";
+import UserInfo from "./components/userInfo";
 
 
 const App = () => {
 
     const [question, setQuestion] = useState([]);
     const [answer, setAnswer] = useState([]);
+    const [tag, setTag] = useState([]);
     const [title, setTitle] = useState("");
     const [postList, setPostList] = useState([]);
     const [submit, setSubmit] = useState(0);
@@ -36,7 +38,7 @@ const App = () => {
 
     const saveQuestion = async () => {
 
-        const id = makeid(10)
+        const id = !update ? makeid(10) : postList[0].id;
 
         try {
             question != "" || answer != ""
@@ -44,6 +46,7 @@ const App = () => {
                     question: question,
                     answer: answer,
                     title: title,
+                    tag: tag,
                     id: id,
                     gb: ""
                 })
@@ -52,6 +55,8 @@ const App = () => {
         catch (e) {
             console.log(e.message)
         }
+
+
         getQuestionList();
         setSubmit(submit => submit + 1)
         setQuestion([]);
@@ -69,6 +74,7 @@ const App = () => {
         catch (e) {
             console.log(e.message)
         }
+        update ? setUpdate(!update) : console.log("")
     }
 
     const scrollToBottom = () => {
@@ -87,11 +93,15 @@ const App = () => {
 
 
     return <div>
+        {isAuth ? <UserInfo auth={auth} /> : null}
         <div className="titleContainer">
             <InputBox types={"Title"} setText={setTitle} submit={submit} />
             <div className="buttonWrap">
                 <button className="button-35" onClick={signInWithGoogle}>{isAuth ? "LogOut" : "Login"}</button>
-                <button className="button-35" onClick={saveQuestion}>Search</button>
+                <button className="button-35" onClick={() => {
+                    setSubmit(submit => submit + 1);
+                    getQuestionList();
+                }}>Search</button>
             </div>
         </div>
         {submit != 0 ?
@@ -107,7 +117,12 @@ const App = () => {
             <ExampleBlock question={question} answer={answer} id={"current"} gb={""} />
             : null}
         <br /><br />
-        <InputForm setQuestion={setQuestion} setAnswer={setAnswer} submit={submit} saveQuestion={saveQuestion} />
+        <InputForm
+            setQuestion={setQuestion}
+            setAnswer={setAnswer}
+            submit={submit}
+            saveQuestion={saveQuestion}
+            setTag={setTag} />
         <div ref={fixView} />
     </div >
 }

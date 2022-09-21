@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const InputBox = ({ types, setText, submit }) => {
 
-    const [value, setValue] = useState("")
+    const [value, setValue] = useState("");
 
     useEffect(() => {
         if (types != "Title") { setValue("") }
@@ -13,14 +13,14 @@ const InputBox = ({ types, setText, submit }) => {
             const textArray = e.target.value.split(',');
             setText(textArray);
         } else {
-            setText(e.target.value.toLowerCase());
+            setText(e.target.value.toLowerCase().trim());
         }
         setValue(e.target.value)
     }
 
     return <fieldset>
         <legend>{types}</legend>
-        <textarea className={types === "Title" ? "titleClass" : "inputBox"} type="text" placeholder={types} onChange={handleInput} value={value} />
+        <input className={types === "Title" ? "titleClass" : "inputBox"} type="text" placeholder={types} onChange={handleInput} value={value} />
     </fieldset>
 }
 
